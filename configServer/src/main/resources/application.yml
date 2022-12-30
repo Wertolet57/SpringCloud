@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: native
+  application:
+    name: configServer
+server:
+  port: 8080
+---
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      server:
+        native:
+          search-locations: /Users/PC/IdeaProjects/ms-config-properties/{application}/{profile}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
